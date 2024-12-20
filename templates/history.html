@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Histórico de Análises</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet" />
+  </head>
+  <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-md mt-10">
+      <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">
+        Histórico de Análises de Sentimentos
+      </h1>
+
+      <ul id="history" class="space-y-6">
+        {% for entry in sentiment_history %}
+        <li
+          class="history-item p-4 bg-gray-50 border-l-4 border-blue-500 rounded-md shadow-md">
+          <p class="text-gray-800 font-semibold text-lg">
+            <span class="text-gray-500">Texto:</span> {{ entry.text }}
+          </p>
+          <p class="text-blue-500 font-medium mt-2">
+            <span class="text-gray-500">Sentimento:</span> {{ entry.sentiment }}
+          </p>
+        </li>
+        {% endfor %}
+      </ul>
+
+      <a href="/" class="block mt-6 text-center text-blue-600 hover:underline">
+        Voltar para a página principal
+      </a>
+    </div>
+  </body>
+</html>
